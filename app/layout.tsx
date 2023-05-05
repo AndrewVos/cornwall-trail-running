@@ -1,7 +1,5 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +12,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className='h-full'>
+      <body>
+        <main className="container p-3 space-y-3">
+          <Link href="/">
+            <h1 className="text-4xl text-gray-700 font-bold hover:underline">
+              Cornwall Trail Running
+            </h1>
+          </Link>
+          <div className="">
+            {children}
+          </div>
+        </main>
+
+      </body>
     </html>
   )
 }
