@@ -18,8 +18,8 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body className="container mx-auto space-y-3 p-3">
+    <html lang="en" className="h-full">
+      <body className="container mx-auto space-y-5 p-3">
         <header>
           <div className=''>
             <Link href="/">
@@ -36,18 +36,17 @@ export default function RootLayout({
           </div>
         </main>
 
-        <div className='border rounded px-3 py-1 flex items-center'>
+        <div className='border rounded px-3 py-1 md:flex items-center'>
           <div className='text-sm text-gray-700 grow'>
             Copyright Cornwall Trail Running {copyrightYear()}
           </div>
           <div>
             <a className="text-blue-500 underline text-sm" href="mailto:andrew@andrewvos.com">Submit a GPX</a>
           </div>
-          <div>&nbsp;-&nbsp;</div>
+          <div className="hidden md:block">&nbsp;-&nbsp;</div>
           <div>
             <a className="text-blue-500 underline text-sm" href="mailto:andrew@andrewvos.com">Contact</a>
           </div>
-
         </div>
 
       </body>
