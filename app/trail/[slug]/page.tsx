@@ -1,7 +1,7 @@
 import Map from "../../../components/Map"
 import trails from "../../../data/trails"
 
-export default function Home({ params: { slug } }) {
+export default function Home({ params: { slug } }: { params: { slug: string } }) {
     const trail = trails.filter(t => t.slug == slug)[0]
 
     return (
