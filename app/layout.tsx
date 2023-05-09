@@ -1,5 +1,6 @@
 import './globals.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Cornwall Trail Running',
@@ -23,9 +24,20 @@ export default function RootLayout({
         <header>
           <div className=''>
             <Link href="/">
-              <h1 className="text-4xl text-gray-700 font-bold hover:underline">
-                Cornwall Trail Running
-              </h1>
+              <div className=''>
+                <div className='flex items-center space-x-3'>
+                  <h1 className="grow text-4xl text-gray-700 font-bold hover:underline">
+                    Cornwall Trail Running
+                  </h1>
+                  <div className='w-[80px] border-4 border-blue-300 rounded-full'>
+                    <div className='border-4 border-gray-200 bg-gray-200 rounded-full'>
+                      <Image src="/landmark.png" width={256} height={256} alt="Cornwall Trail Running Logo" className='rounded-full' />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </Link>
           </div>
         </header>
