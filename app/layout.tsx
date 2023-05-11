@@ -52,15 +52,7 @@ export default function RootLayout({
           <div className='text-sm text-gray-700 grow'>
             Copyright Cornwall Trail Running {copyrightYear()}
           </div>
-          <div>
-            <a className="text-blue-500 underline text-sm" href="mailto:andrew@andrewvos.com">Submit a GPX</a>
-          </div>
-          <div className="hidden md:block">&nbsp;-&nbsp;</div>
-          <div>
-            <a className="text-blue-500 underline text-sm" href="mailto:andrew@andrewvos.com">Contact</a>
-          </div>
         </div>
-
       </body>
     </html>
   )
