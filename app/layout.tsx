@@ -52,6 +52,9 @@ export default function RootLayout({
           <div className='text-sm text-gray-700 grow'>
             Copyright Cornwall Trail Running {copyrightYear()}
           </div>
+          <div>
+            <Link href="/upload" className="text-blue-500 hover:underline">Upload a route</Link>
+          </div>
         </div>
       </body>
     </html>
