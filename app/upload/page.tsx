@@ -6,6 +6,8 @@ export default function Upload() {
             </h2>
             <div>
                 <form action="/api/upload" encType="multipart/form-data" method="POST">
+                    <input type="text" name="title"></input>
+                    <input type="text" name="description"></input>
                     <input type="file" name="file" />
                     <input type="submit" />
                 </form>

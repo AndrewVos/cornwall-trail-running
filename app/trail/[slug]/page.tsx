@@ -1,8 +1,13 @@
 import Map from "../../../components/Map"
-import trails from "../../../data/trails"
+import { PrismaClient } from "@prisma/client";
 
-export default function Home({ params: { slug } }: { params: { slug: string } }) {
-    const trail = trails.filter(t => t.slug == slug)[0]
+export default async function Home({ params: { slug } }: { params: { slug: string } }) {
+    const prisma = new PrismaClient();
+    const trail = await prisma.trail.findUnique({
+        where: {
+            id: slug,
+        },
+    })
 
     return (
         <main className="space-y-2">
@@ -10,16 +15,16 @@ export default function Home({ params: { slug } }: { params: { slug: string } })
                 {trail.name}
             </h2>
             <div className="text-lg text-gray-700">
-                <span className="font-bold">Distance:</span> {trail.distance} km
+                <span className="font-bold">Distance:</span> {(trail.distance / 1000).toFixed(1)} km
             </div>
             <div className="text-lg text-gray-700 mb-3">
-                <span className="font-bold">Elevation:</span> {trail.elevation}m
+                <span className="font-bold">Elevation:</span> {(trail.elevation).toFixed(1)} m
             </div>
             <div className="text-lg text-gray-700">
                 {trail.description}
             </div>
             <div className="h-[400px] border-2">
-                <Map json={trail.json} />
+                <Map json={JSON.parse(trail.geo)} />
             </div>
         </main>
     )
