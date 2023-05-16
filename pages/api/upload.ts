@@ -6,6 +6,7 @@ import gpxCalcElevationGain from "gpx-calc-elevation-gain";
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import haversine from "haversine-distance";
+import { getAuth } from "@clerk/nextjs/server";
 
 export const config = {
   api: {
@@ -53,6 +54,11 @@ const calculateDistance = (geoJSON) => {
 };
 
 const upload = async (req: NextRequest, res: NextResponse) => {
+  const { userId } = getAuth(req);
+  if (!userId) {
+    throw new Error("not signed in");
+  }
+
   const prisma = new PrismaClient();
 
   const { fields, files } = await parseForm(req);
@@ -69,7 +75,7 @@ const upload = async (req: NextRequest, res: NextResponse) => {
 
   const trail = await prisma.trail.create({
     data: {
-      userId: "1",
+      userId,
       title: fields.title,
       distance: calculateDistance(geoJSON),
       elevation: elevation,

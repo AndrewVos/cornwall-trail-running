@@ -1,7 +1,7 @@
 import Map from "../../../components/Map"
 import { PrismaClient } from "@prisma/client";
 
-export default async function Home({ params: { slug } }: { params: { slug: string } }) {
+export default async function Page({ params: { slug } }: { params: { slug: string } }) {
     const prisma = new PrismaClient();
     const trail = await prisma.trail.findUnique({
         where: {

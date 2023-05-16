@@ -1,7 +1,7 @@
 import Link from "next/link"
 import trails from "../../data/trails"
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="space-y-3">
       <h2 className="text-3xl font-bold text-gray-700">

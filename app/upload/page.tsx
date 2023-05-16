@@ -1,4 +1,4 @@
-export default function Upload() {
+export default function Page() {
     return (
         <div className="space-y-3">
             <h2 className="text-3xl font-bold text-gray-700">
@@ -28,7 +28,7 @@ export default function Upload() {
                             </div>
                         </div>
                         <div className="border-t p-3 bg-gray-50">
-                            <input type="submit" className="bg-blue-500 text-white text-md px-2 py-1 font-bold rounded" />
+                            <input type="submit" className="bg-blue-500 text-white text-md px-2 py-1 font-bold rounded cursor-pointer" />
                         </div>
                     </div>
                 </form>
